@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Github</title>
+    <link rel="stylesheet" href="./style.css" />
+
+    <!-- For Fonts - Quicksand -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <script defer type="module" src="./src/js/controller.js"></script>
+  </head>
+
+  <body>
+    <div class="container">
+      <nav class="logo-box">
+        <div class="logo">LOGO</div>
+        <div class="menu">HAMBURGER</div>
+      </nav>
+
+      <div class="container-inner">
+        <div class="search-results">
+          <div class="search-box">
+            <div class="search-box--inner">
+              <div class="search-button">
+                <ion-icon name="search" class="search-icon"></ion-icon>
+              </div>
+              <input type="text" placeholder="Search" class="search-text-box" />
+            </div>
+          </div>
+          <div class="results-box">
+            <div class="results-section results-header">
+              <div class="search_for_account">
+                Search for any username to get details
+              </div>
+
+              <!-- <div class="error-box">
+                <div class="error-icon">
+                  <ion-icon name="warning-outline" class="warning"></ion-icon>
+                </div>
+                <div class="error-msg">
+                  Hmm! Looks Like your internet connection is slow <br />Please
+                  try connecting to a faster internet
+                </div>
+              </div> -->
+
+              <!--  <ion-icon
+                name="bookmark-outline"
+                class="bookmark-icon"
+              ></ion-icon>
+              <div class="rprofileimagebox">
+                <img src="./src/img/1678890.jpg" alt="" class="resultsImg" />
+                <div class="follow-box">
+                  <div class="followers">
+                    <span class="followtext">Followers</span>
+                    <span class="follownum">25</span>
+                  </div>
+                  <div class="seperator"></div>
+                  <div class="following">
+                    <span class="followtext">Following</span>
+                    <span class="follownum">30</span>
+                  </div>
+                </div>  
+              </div>
+              <div class="rinfo">
+                <div class="idname">
+                  <span class="result-span rname">Mohammed Rehaan</span>
+                  <span class="result-span ruserID">@mohammed_rehaan</span>
+                </div>
+              
+                <span class="result-span remail"
+                  >mohammedrehaan08@gmail.com</span
+                >
+                <span class="result-span bio">
+                  Love Programming😉 Curious to know the Digital World🙌 Trying
+                  to be a 😎Developer🤞</span
+                >
+                <span class="result-span rjoinedAt"
+                  >Joined on October 2, 2020</span
+                >
+               
+              </div> -->
+            </div>
+            <div class="results-section results-repos">
+              <!-- <h3 class="repositories-heading">Repositories</h3> -->
+
+              <!-- <div class="repo">
+                <div class="repo-head">
+                  <ion-icon
+                    name="folder-open-outline"
+                    class="repo-icon"
+                  ></ion-icon>
+                  <p class="repo-name">
+                    <span>Agriculture</span>
+                    <span class="public">public</span>
+                  </p>
+                </div>
+                <div class="repo-desc">
+                  <div class="languages-used">
+                    <ul class="languages-list">
+                      <li class="languages-item">Javascript</li>
+                      <li class="languages-item">CSS3</li>
+                      <li class="languages-item">HTML5</li>
+                    </ul>
+                  </div>
+                  <div class="repo-size">666 KB</div>
+                </div>
+              </div>
+
+              <div class="repo">
+                <div class="repo-head">
+                  <ion-icon
+                    name="folder-open-outline"
+                    class="repo-icon"
+                  ></ion-icon>
+                  <p class="repo-name">
+                    <span>Agriculture</span>
+                    <span class="public">public</span>
+                  </p>
+                </div>
+                <div class="repo-desc">
+                  <div class="languages-used">
+                    <ul class="languages-list">
+                      <li class="languages-item">Javascript</li>
+                      <li class="languages-item">CSS3</li>
+                      <li class="languages-item">HTML5</li>
+                    </ul>
+                  </div>
+                  <div class="repo-size">666 KB</div>
+                </div>
+              </div>
+
+              <div class="repo">
+                <div class="repo-head">
+                  <ion-icon
+                    name="folder-open-outline"
+                    class="repo-icon"
+                  ></ion-icon>
+                  <p class="repo-name">
+                    <span>Agriculture</span>
+                    <span class="public">public</span>
+                  </p>
+                </div>
+                <div class="repo-desc">
+                  <div class="languages-used">
+                    <ul class="languages-list">
+                      <li class="languages-item">Javascript</li>
+                      <li class="languages-item">CSS3</li>
+                      <li class="languages-item">HTML5</li>
+                    </ul>
+                  </div>
+                  <div class="repo-size">666 KB</div>
+                </div>
+              </div>
+
+              <div class="repo">
+                <div class="repo-head">
+                  <ion-icon
+                    name="folder-open-outline"
+                    class="repo-icon"
+                  ></ion-icon>
+                  <p class="repo-name">
+                    <span>Agriculture</span>
+                    <span class="public">public</span>
+                  </p>
+                </div>
+                <div class="repo-desc">
+                  <div class="languages-used">
+                    <ul class="languages-list">
+                      <li class="languages-item">Javascript</li>
+                      <li class="languages-item">CSS3</li>
+                      <li class="languages-item">HTML5</li>
+                    </ul>
+                  </div>
+                  <div class="repo-size">666 KB</div>
+                </div>
+              </div>
+
+              <div class="repo">
+                <div class="repo-head">
+                  <ion-icon
+                    name="folder-open-outline"
+                    class="repo-icon"
+                  ></ion-icon>
+                  <p class="repo-name">
+                    <span>Agriculture</span>
+                    <span class="public">public</span>
+                  </p>
+                </div>
+                <div class="repo-desc">
+                  <div class="languages-used">
+                    <ul class="languages-list">
+                      <li class="languages-item">Javascript</li>
+                      <li class="languages-item">CSS3</li>
+                      <li class="languages-item">HTML5</li>
+                    </ul>
+                  </div>
+                  <div class="repo-size">666 KB</div>
+                </div>
+              </div>
+
+              <div class="repo">
+                <div class="repo-head">
+                  <ion-icon
+                    name="folder-open-outline"
+                    class="repo-icon"
+                  ></ion-icon>
+                  <p class="repo-name">
+                    <span>Agriculture</span>
+                    <span class="public">public</span>
+                  </p>
+                </div>
+                <div class="repo-desc">
+                  <div class="languages-used">
+                    <ul class="languages-list">
+                      <li class="languages-item">Javascript</li>
+                      <li class="languages-item">CSS3</li>
+                      <li class="languages-item">HTML5</li>
+                    </ul>
+                  </div>
+                  <div class="repo-size">666 KB</div>
+                </div>
+              </div>
+
+              <div class="repo">
+                <div class="repo-head">
+                  <ion-icon
+                    name="folder-open-outline"
+                    class="repo-icon"
+                  ></ion-icon>
+                  <p class="repo-name">
+                    <span>Agriculture</span>
+                    <span class="public">public</span>
+                  </p>
+                </div>
+                <div class="repo-desc">
+                  <div class="languages-used">
+                    <ul class="languages-list">
+                      <li class="languages-item">Javascript</li>
+                      <li class="languages-item">CSS3</li>
+                      <li class="languages-item">HTML5</li>
+                    </ul>
+                  </div>
+                  <div class="repo-size">666 KB</div>
+                </div>
+              </div>
+
+              <div class="repo">
+                <div class="repo-head">
+                  <ion-icon
+                    name="folder-open-outline"
+                    class="repo-icon"
+                  ></ion-icon>
+                  <p class="repo-name">
+                    <span>Agriculture</span>
+                    <span class="public">public</span>
+                  </p>
+                </div>
+                <div class="repo-desc">
+                  <div class="languages-used">
+                    <ul class="languages-list">
+                      <li class="languages-item">Javascript</li>
+                      <li class="languages-item">CSS3</li>
+                      <li class="languages-item">HTML5</li>
+                    </ul>
+                  </div>
+                  <div class="repo-size">666 KB</div>
+                </div>
+              </div> -->
+            </div>
+          </div>
+        </div>
+        <aside class="bookmarks">
+          <h3 class="bookmarks-heading">Bookmarks</h3>
+          <ul class="bookmarks-list">
+            <!-- <li class="bookmarks-item">
+              <ion-icon name="close-circle-outline" class="cross"></ion-icon>
+              <div class="bookmarksPic-box">
+                <img src="./src/img/1678890.jpg" alt="" class="bookmarksPic" />
+              </div>
+              <div class="bookmarksDetails-box">
+                <div class="buserID">mohammed_rehaan</div>
+                <div class="bname">Mohammed Rehaan</div>
+              </div>
+            </li> -->
+          </ul>
+        </aside>
+      </div>
+    </div>
+
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+  </body>
+</html>
