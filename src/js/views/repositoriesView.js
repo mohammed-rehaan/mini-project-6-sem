@@ -44,6 +44,7 @@ class RepositoriesView extends view {
           </p>
         </div>
         <div class="repo-desc">
+        <!--
           <div class="languages-used">
             <ul class="languages-list">
               <div class="language">
@@ -63,6 +64,7 @@ class RepositoriesView extends view {
               
             </ul>
           </div>
+          -->
           <div class="repo-size">${el.size} KB</div>
         </div>
       </a>

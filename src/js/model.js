@@ -45,22 +45,27 @@ export const fetchRepos = async function () {
     const res = await data.json();
 
     state.results.repos = res;
-    res.map((el) => state.results.languages_url.push(el.languages_url));
+    // res.map((el) => state.results.languages_url.push(el.languages_url));
     fetchLanguages();
-    console.log(state.results.languages);
+    // console.log(state.results.languages);
+    console.log(res);
   } catch (err) {
     console.log("Error ", err);
   }
 };
 
-const fetchLanguages = function () {
+const fetchLanguages = async function () {
   state.results.languages = [];
 
-  state.results.languages_url.forEach(async function (lang) {
-    const data = await fetch(lang);
-    const res = await data.json();
-    state.results.languages.push(Object.keys(res));
-  });
+  // state.results.languages_url.forEach(async function (lang) {
+  //   const data = await fetch(lang);
+  //   const res = await data.json();
+  //   state.results.languages.push(Object.keys(res));
+  // });
+  const data = await fetch(state.results.repos.languages_url);
+  const res = await data.json();
+  // state.results.languages = 
+  console.log('fetchLang : ',res);
 };
 
 export const addBookmark = function (profile) {
