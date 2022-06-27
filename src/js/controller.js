@@ -10,7 +10,7 @@ const controlProfile = async function (userName) {
     repositoriesView.renderSpinner(repositoriesView._parentElement);
     await model.fetchData(`https://api.github.com/users/${userName}`, userName);
     await model.fetchRepos();
-    // await model.fetchLang();
+
     if (!model.state.results.profile.username) {
       profileView.renderUserError();
       repositoriesView.renderError();
@@ -67,5 +67,6 @@ const init = function () {
   searchView.addhandler(controlSearch);
   profileView.addhandler(controlBookmarkIconToggling);
   bookmarkView.addhandler(bookmarksClick);
+  updateAsideBookmarks();
 };
 init();

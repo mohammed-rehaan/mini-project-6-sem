@@ -1,6 +1,13 @@
 :root {
-  --primary-color: #7c00f3;
-  --primary-color-darker: #371654;
+  /* --primary-color: #b600b6; */
+  --primary-color: blue;
+  --primary-color-darker: rgba(0, 0, 255, 0.322);
+  /* --primary-color-darker: rgba(182, 0, 182, 0.616); */
+  --black: #000;
+  --border-color: rgb(25, 25, 25);
+  --bg-col: black;
+  --color: white;
+  --heading-color: rgb(230, 230, 230);
 }
 
 * {
@@ -16,8 +23,9 @@ html {
 body {
   font-family: "Quicksand", sans-serif;
   height: 85vh;
-  background-color: black;
-  color: white;
+  background-color: var(--bg-col);
+  /* background-color: white; */
+  color: var(--color);
 }
 
 .container {
@@ -36,21 +44,40 @@ body {
   align-items: center;
   justify-content: space-between;
   padding: 1rem 3rem;
-  background-color: var(--red-color);
-  background-color: black;
+  background-color: var(--bg-col);
 
-  border: 2px solid white;
+  /* border: 2px solid var(--border-color); */
+
+  /* box-shadow: 0 10px 10px rgba(0, 0, 0, 0.192); */
+
+  color: var(--color);
+  font-weight: 700;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.site-name {
+  letter-spacing: 3.5px;
+}
+.color-g {
+  color: var(--primary-color);
+}
+.logo-img {
+  width: 5rem;
+  height: 5rem;
 }
 
 .search-results {
   gap: 3rem;
-  background-color: var(--green-color);
+  background-color: var(--bg-col);
   padding: 1rem 3rem;
-  background-color: black;
 }
 
 .search-box {
-  padding: 2rem;
+  padding: 1rem;
+  /* padding-top: 0; */
   position: relative;
   display: flex;
   align-items: center;
@@ -62,20 +89,25 @@ body {
   align-items: center;
   border-radius: 10px;
 }
+
+.search-text-box,
+.search-button {
+  /* border: 0.1px solid var(--primary-color); */
+  background-color: rgb(25, 25, 25);
+}
 .search-text-box {
+  border: none;
   display: block;
   padding: 1rem 0.8rem;
   width: 50%; /* just  for adding animation*/
   min-width: 15rem;
-  border: 1px solid white;
-
-  font-size: 1.8rem;
+  font-size: 2rem;
   height: 100%;
-  transition: width 0.7s ease-in-out;
+  transition: all 0.7s ease-in-out;
 
   border-radius: 0 2px 2px 0;
-
-  border: 2px solid white;
+  color: var(--color);
+  border-left: none;
 }
 .search-text-box:focus {
   width: 90%;
@@ -84,13 +116,25 @@ body {
 
 .search-button {
   text-align: center;
-  background-color: white;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 0.65rem 0.5rem;
   border-radius: 2px 0 0 2px;
-  border: 1px solid white;
+  border-right: none;
+}
+.search_for_account {
+  font-size: 4rem;
+  color: var(--primary-color-darker);
+  color: white;
+  /* font-weight: 700; */
+  text-align: center;
+  line-height: 1.4;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .results-box {
@@ -127,11 +171,11 @@ body {
   border-radius: 2px;
   position: relative;
 
-  border: 2px solid white;
+  /* border: 2px solid var(--border-color); */
   transition: border 0.3s ease;
 }
 .purple-border {
-  border: 2px solid var(--primary-color);
+  border: 2px solid var(--border-color);
 }
 
 .rprofileimagebox {
@@ -151,7 +195,7 @@ body {
 .seperator {
   height: 4rem;
   /* width: 2rem; */
-  border: 1px solid white;
+  border: 2px solid var(--primary-color);
 }
 .followers,
 .following {
@@ -180,7 +224,7 @@ body {
   transition: all 0.3s ease;
 }
 .ruserID:hover {
-  color: white;
+  color: var(--primary-color);
 }
 .rname {
   font-size: 4rem;
@@ -190,6 +234,8 @@ body {
   height: 20rem;
   width: 20rem;
   border-radius: 50%;
+  border: 5px solid var(--primary-color);
+  /* padding: 1rem; */
 }
 .resultsImg:after {
   content: "";
@@ -200,13 +246,33 @@ body {
 }
 
 .results-repos {
-  border-top: 2px solid #ccc;
+  /* border-top: 2px solid #ccc; */
   display: flex;
   flex-direction: column;
   gap: 2rem;
 }
 .repositories-heading {
   margin-bottom: 2rem;
+  color: var(--heading-color);
+}
+.results-repos:hover .repositories-heading {
+  color: var(--primary-color);
+}
+.language{
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.dot{
+  display: inline-block;
+  height: 0.8rem;
+  width: 0.8rem;
+  border-radius: 50%;
+  border: 1px solid white;
+  background-color: white;
+
+  transition: all 0.5s ease;
 }
 .repo {
   display: flex;
@@ -214,8 +280,9 @@ body {
   gap: 1.5rem;
   padding: 1.5rem 3rem;
   text-decoration: none;
-  color: white;
-  border: 2px solid white;
+  color: var(--color);
+
+  border: 2px solid var(--border-color);
 
   transition: all 0.4s ease;
   cursor: pointer;
@@ -230,6 +297,15 @@ body {
   opacity: 1;
   transform: translateX(0);
 }
+
+.repo:hover .dot{
+  /* border-color: var(--primary-color); */
+  border-color: orange;
+  background-color: orange;
+  /* background-color: var(--primary-color); */
+}
+
+
 .repo-head {
   display: flex;
   align-items: center;
@@ -258,18 +334,22 @@ body {
   color: #777;
 }
 .bookmarks {
-  background-color: var(--yellow-color);
+  background-color: var(--bg-col);
   padding: 1.5rem 1.8rem;
+  padding-top: 0;
   height: inherit;
-  border: 2px solid white;
+  /* border: 2px solid var(--border-color); */
+  border-left: 2px solid rgba(0, 0, 0, 0.027);
   overflow-y: scroll;
   overflow-x: hidden;
-
-  background-color: black;
 }
 .bookmarks-heading {
   text-align: center;
   margin-bottom: 2rem;
+  color: var(--heading-color);
+}
+.bookmarks:hover .bookmarks-heading {
+  color: var(--primary-color);
 }
 .bookmarks-list {
   display: flex;
@@ -278,13 +358,13 @@ body {
   list-style: none;
 }
 .bookmarks-item {
-  border: 2px solid white;
+  border: 2px solid var(--border-color);
   font-size: 1.5rem;
   padding: 1rem;
   display: flex;
   align-items: center;
   gap: 1.5rem;
-
+  color: var(--color);
   cursor: pointer;
   transition: all 0.5s ease;
 
@@ -298,7 +378,7 @@ body {
 }
 .buserID {
   font-weight: bold;
-  background-color: inherit;
+  background-color: var(--bg-col);
   transform: translateY(40%);
 
   transition: all 0.5s ease;
@@ -340,14 +420,6 @@ body {
   background-color: #eee;
 }
 
-.search_for_account {
-  font-size: 8rem;
-  color: var(--primary-color-darker);
-  /* color: #333; */
-  font-weight: 700;
-  text-align: center;
-  line-height: 1.4;
-}
 .spinner-box {
   height: 100%;
   width: 100%;
@@ -374,10 +446,14 @@ body {
   }
 }
 
+
+
 /* ------------------------ ICONS ------------------------ */
 .search-icon {
   font-size: 3rem;
-  color: black;
+  stroke-width: 0px;
+  color: var(--primary-color);
+  /* border: 2px solid var(--border-color); */
 }
 
 .bookmark-icon {
@@ -390,9 +466,9 @@ body {
 
   transition: all 0.5s ease;
 
-  background-color: var(--green-color);
-  background-color: black;
-  color: white;
+  background-color: var(--bg-col);
+
+  color: var(--color);
 }
 
 .bookmark-icon:hover {
@@ -410,8 +486,8 @@ body {
   opacity: 0;
   top: -1.2rem;
   right: -1rem;
-  background-color: var(--yellow-color);
-  background-color: black;
+  background-color: var(--bg-col);
+
   color: var(--primary-color);
   transition: all 0.2s ease;
 }
@@ -423,4 +499,9 @@ body {
 .bookmarks-item-link {
   text-decoration: none;
   color: white;
+  color: var(--black);
+}
+
+::selection {
+  background-color: var(--primary-color);
 }

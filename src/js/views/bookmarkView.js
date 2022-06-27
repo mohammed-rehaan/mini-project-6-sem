@@ -29,7 +29,6 @@ class bookmarkView {
         </div>
       </li>
     </a>
-
     `;
   }
 }

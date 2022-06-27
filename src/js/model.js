@@ -5,6 +5,8 @@ export const state = {
   results: {
     profile: {},
     repos: [],
+    languages_url: [],
+    languages: [],
   },
   bookmarks: [],
 };
@@ -12,7 +14,7 @@ export const state = {
 export const fetchData = async function (url, username) {
   try {
     // const data = await fetch(url);
-    const data = await Promise.race([fetch(url), timeout(1)]);
+    const data = await Promise.race([fetch(url), timeout(10)]);
     const res = await data.json();
     if (!res) return;
     state.results.profile = {
@@ -43,28 +45,53 @@ export const fetchRepos = async function () {
     const res = await data.json();
 
     state.results.repos = res;
+    res.map((el) => state.results.languages_url.push(el.languages_url));
+    fetchLanguages();
+    console.log(state.results.languages);
   } catch (err) {
     console.log("Error ", err);
   }
 };
 
+const fetchLanguages = function () {
+  state.results.languages = [];
+
+  state.results.languages_url.forEach(async function (lang) {
+    const data = await fetch(lang);
+    const res = await data.json();
+    state.results.languages.push(Object.keys(res));
+  });
+};
+
 export const addBookmark = function (profile) {
   state.bookmarks.push(profile);
-  if (profile.username === state.results.profile.username) {
-    state.results.profile.is_bookmarked = true;
-  }
-
+  // if (profile.username === state.results.profile.username) {
+  state.results.profile.is_bookmarked = true;
+  setLocalItem();
+  // }
   console.log(state.bookmarks);
 };
 
 export const deleteBookmark = function (username) {
-  const index = state.bookmarks.findIndex(name => name.username === username);
-  console.log("index : ",index);
+  const index = state.bookmarks.findIndex((name) => name.username === username);
+  console.log("index : ", index);
   state.results.profile.is_bookmarked = false;
   state.bookmarks.splice(index, 1);
   console.log(state.bookmarks);
-
+  setLocalItem();
 };
+
+const setLocalItem = function () {
+  localStorage.setItem("bookmark", JSON.stringify(state.bookmarks));
+};
+const getLocalItem = function () {
+  const res = localStorage.getItem("bookmark");
+  if (!res) return;
+
+  state.bookmarks = JSON.parse(res);
+};
+getLocalItem();
+
 // export const fetchLang = async function () {
 
 // };
@@ -76,6 +103,4 @@ export const renderBookmarked = function () {
   bookmark_icon.classList.add("bookmark-icon-filled");
 };
 
-const renderAsideBookmarks = function(){
-
-}
+// const renderAsideBookmarks = function () {};

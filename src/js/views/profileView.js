@@ -24,8 +24,8 @@ class ProfileView extends view {
       <ion-icon name="warning-outline" class="warning"></ion-icon>
     </div>
     <div class="error-msg">
-      Hmm! Looks Like your internet connection is slow <br />Please
-      try connecting to a faster internet
+      Hmm! Looks Like you have internet issue<br/>
+      Check your connection and try again
     </div>
   </div>`;
 
