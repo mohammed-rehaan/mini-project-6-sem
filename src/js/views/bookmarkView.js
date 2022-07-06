@@ -23,19 +23,20 @@ class bookmarkView {
   }
 
   addHandlerToggleBookmarkMenu(handler1, handler2) {
-    const ham = document.querySelector(".menu");
+    const ham = document.querySelector(".hamburger-input");
     const bookmarks = document.querySelector(".bookmarks");
-    const close = document.querySelector(".cross");
     const overlay = document.querySelector(".overlay");
 
     ham.addEventListener("click", function () {
-      handler1(bookmarks, overlay);
-    });
-    close.addEventListener("click", function () {
-      handler2(bookmarks, overlay);
+      if (ham.checked) {
+        handler1(bookmarks, overlay);
+      } else {
+        handler2(bookmarks, overlay);
+      }
     });
     overlay.addEventListener("click", function () {
       handler2(bookmarks, overlay);
+      ham.checked = !ham.checked;
     });
   }
   _generateBookmarkMarkup(data) {
