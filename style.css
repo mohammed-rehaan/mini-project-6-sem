@@ -22,10 +22,12 @@ html {
 
 body {
   font-family: "Quicksand", sans-serif;
-  height: 85vh;
+  /* height: 90vh; */
   background-color: var(--bg-col);
-  /* background-color: white; */
   color: var(--color);
+
+  position: relative; /*For overlay*/
+  -webkit-tap-highlight-color: transparent;
 }
 
 .container {
@@ -34,11 +36,19 @@ body {
   display: grid;
   grid-template-rows: 1fr 10fr;
   gap: 2rem;
-  height: inherit;
+  /* height: inherit; */
   padding: 2rem 4rem;
   font-size: 2rem;
-}
+  overflow-x: hidden;
 
+  position: relative;
+}
+.container-inner {
+  display: grid;
+  grid-template-columns: auto 30rem;
+
+  /* height: 100vh; */
+}
 .logo-box {
   display: flex;
   align-items: center;
@@ -73,12 +83,12 @@ body {
   gap: 3rem;
   background-color: var(--bg-col);
   padding: 1rem 3rem;
+  justify-self: center;
 }
 
 .search-box {
   padding: 1rem;
   /* padding-top: 0; */
-  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -99,10 +109,10 @@ body {
   border: none;
   display: block;
   padding: 1rem 0.8rem;
-  width: 50%; /* just  for adding animation*/
+  width: 50%; /* just  for adding animation */
   min-width: 15rem;
   font-size: 2rem;
-  height: 100%;
+  height: 99%;
   transition: all 0.7s ease-in-out;
 
   border-radius: 0 2px 2px 0;
@@ -122,6 +132,7 @@ body {
   padding: 0.65rem 0.5rem;
   border-radius: 2px 0 0 2px;
   border-right: none;
+  height: 100%;
 }
 .search_for_account {
   font-size: 4rem;
@@ -139,7 +150,7 @@ body {
 
 .results-box {
   padding-top: 2rem;
-  height: 70vh;
+  height: 90vh;
   overflow-y: scroll;
   overflow-x: hidden;
 }
@@ -237,13 +248,6 @@ body {
   border: 5px solid var(--primary-color);
   /* padding: 1rem; */
 }
-.resultsImg:after {
-  content: "";
-  height: 100%;
-  width: 100%;
-  display: block;
-  border-left: 3px solid var(--primary-color);
-}
 
 .results-repos {
   /* border-top: 2px solid #ccc; */
@@ -255,16 +259,14 @@ body {
   margin-bottom: 2rem;
   color: var(--heading-color);
 }
-.results-repos:hover .repositories-heading {
-  color: var(--primary-color);
-}
-.language{
+
+.language {
   display: flex;
   align-items: center;
   gap: 0.8rem;
 }
 
-.dot{
+.dot {
   display: inline-block;
   height: 0.8rem;
   width: 0.8rem;
@@ -298,13 +300,12 @@ body {
   transform: translateX(0);
 }
 
-.repo:hover .dot{
+.repo:hover .dot {
   /* border-color: var(--primary-color); */
   border-color: orange;
   background-color: orange;
   /* background-color: var(--primary-color); */
 }
-
 
 .repo-head {
   display: flex;
@@ -337,20 +338,18 @@ body {
   background-color: var(--bg-col);
   padding: 1.5rem 1.8rem;
   padding-top: 0;
-  height: inherit;
+  height: 100%;
   /* border: 2px solid var(--border-color); */
   border-left: 2px solid rgba(0, 0, 0, 0.027);
   overflow-y: scroll;
-  overflow-x: hidden;
+  transition: all 0.3s ease;
 }
 .bookmarks-heading {
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
   color: var(--heading-color);
 }
-.bookmarks:hover .bookmarks-heading {
-  color: var(--primary-color);
-}
+
 .bookmarks-list {
   display: flex;
   flex-direction: column;
@@ -368,7 +367,7 @@ body {
   cursor: pointer;
   transition: all 0.5s ease;
 
-  position: relative;
+  /* position: relative; */
 }
 
 .bookmarksPic {
@@ -402,11 +401,6 @@ body {
   color: var(--primary-color);
 }
 
-.container-inner {
-  display: grid;
-  grid-template-columns: 5fr 30rem;
-  height: inherit;
-}
 ::-webkit-scrollbar {
   width: 6px;
   display: none;
@@ -446,8 +440,6 @@ body {
   }
 }
 
-
-
 /* ------------------------ ICONS ------------------------ */
 .search-icon {
   font-size: 3rem;
@@ -481,14 +473,17 @@ body {
 }
 
 .cross {
-  font-size: 3rem;
-  position: absolute;
-  opacity: 0;
-  top: -1.2rem;
-  right: -1rem;
-  background-color: var(--bg-col);
+  display: none;
 
-  color: var(--primary-color);
+  font-size: 3.5rem;
+  position: absolute;
+  opacity: 1;
+  top: 0.8rem;
+  right: 1.6rem;
+  background-color: var(--bg-col);
+  cursor: pointer;
+  /* color: var(--primary-color); */
+
   transition: all 0.2s ease;
 }
 
@@ -498,10 +493,149 @@ body {
 
 .bookmarks-item-link {
   text-decoration: none;
-  color: white;
   color: var(--black);
 }
+.menu {
+  opacity: 0;
+  font-size: 5rem;
+  cursor: pointer;
+  display: none;
+}
+.overlay {
+  height: 100%;
+  width: 100%;
+  background-color: rgba(255, 249, 249, 0.055);
+  position: absolute;
+  transition: all 0.3s ease;
+  z-index: 1;
+}
+.hidden {
+  display: none;
+}
 
+.respmarks {
+  position: absolute;
+  padding-top: 6rem;
+  top: 0;
+  right: 0;
+  transform: translateX(100%);
+  z-index: 1;
+}
 ::selection {
   background-color: var(--primary-color);
+}
+/* ---------------------- MEDIA QUERIES -------------------- */
+/* 1072px */
+@media (max-width: 68em) {
+  html {
+    font-size: 59.37%;
+  }
+  .results-header {
+    gap: 6rem;
+  }
+}
+
+/* 912px */
+@media (max-width: 58em) {
+  html {
+    font-size: 53.125%;
+  }
+
+  .results-header {
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+    text-align: center;
+    gap: 3.6rem;
+  }
+}
+
+/* 736px */
+
+@media (max-width: 43em) {
+  html {
+    font-size: 53%;
+  }
+  .container {
+    padding: 1rem 1.5rem;
+  }
+  .container-inner {
+    grid-template-columns: 4fr;
+  }
+  .logo-img {
+    height: 4rem;
+    width: 4rem;
+  }
+  .site-name {
+    display: none;
+    font-size: 1.8rem;
+  }
+  .cross,
+  .menu {
+    display: block;
+    opacity: 1;
+    padding-right: 1rem;
+  }
+  .search_for_account {
+    /* padding-top: 18rem; */
+    transform: translateY(100%);
+  }
+  .results-repos {
+    padding: 1rem;
+  }
+
+  .search-box {
+    padding-top: 0;
+    width: 100%;
+  }
+  .search-text-box {
+    /* width: 100%; */
+    /* position: absolute; */
+    top: 0;
+    left: 0;
+  }
+  .search-img {
+    height: 10rem;
+    width: 10rem;
+  }
+  .search-text {
+    font-size: 2.5rem;
+  }
+  .search-text-box:focus {
+    width: 90%;
+    outline: none;
+  }
+  .menu {
+    display: block;
+  }
+  .logo-box {
+    padding: 1rem 1.5rem;
+  }
+  .bookmarks {
+    position: absolute;
+    /* float: right; */
+    top: 0;
+    right: 0;
+    padding-top: 6rem;
+    transform: translateX(100%);
+    z-index: 1;
+  }
+  .search-button {
+    padding: 0.68rem 0.8rem;
+  }
+}
+
+@media (max-width: 24em) {
+  html {
+    font-size: 42%;
+  }
+  .search-results {
+    padding: 0.5rem;
+  }
+}
+
+@media (max-width: 20em) {
+  html {
+    font-size: 36%;
+  }
 }

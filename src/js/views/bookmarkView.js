@@ -13,9 +13,31 @@ class bookmarkView {
   }
 
   addhandler(handler) {
-    this._parentElement.addEventListener("click", handler);
+    this._parentElement.addEventListener("click", function (e) {
+      const listItem = e.target.closest(".bookmarks-item-link");
+      const user = listItem.dataset.username;
+
+      if (!listItem) return;
+      handler(user);
+    });
   }
 
+  addHandlerToggleBookmarkMenu(handler1, handler2) {
+    const ham = document.querySelector(".menu");
+    const bookmarks = document.querySelector(".bookmarks");
+    const close = document.querySelector(".cross");
+    const overlay = document.querySelector(".overlay");
+
+    ham.addEventListener("click", function () {
+      handler1(bookmarks, overlay);
+    });
+    close.addEventListener("click", function () {
+      handler2(bookmarks, overlay);
+    });
+    overlay.addEventListener("click", function () {
+      handler2(bookmarks, overlay);
+    });
+  }
   _generateBookmarkMarkup(data) {
     return `
     <a class="bookmarks-item-link" data-username=${this.#data.username}>

@@ -4,8 +4,21 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Github</title>
+    <title>GitAccount</title>
     <link rel="stylesheet" href="./style.css" />
+    <link rel="icon" href="./src/img/blue-logo.png" />
+    <link rel="shortcut-icon" href="./src/img/blue-logo.png" />
+
+    <meta
+      name="theme-color"
+      media="(prefers-color-scheme: light)"
+      content="blue"
+    />
+    <meta
+      name="theme-color"
+      media="(prefers-color-scheme: dark)"
+      content="blue"
+    />
 
     <!-- For Fonts - Quicksand -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -19,30 +32,43 @@
   </head>
 
   <body>
+    <div class="overlay hidden"></div>
     <div class="container">
       <nav class="logo-box">
         <div class="logo">
           <img src="./src/img/blue-logo.png" alt="logo" class="logo-img" />
           <h4 class="site-name"><span class="color-g">G</span>itAccount</h4>
         </div>
-        <!-- <div class="menu">HAMBURGER</div> -->
+        <div class="search-box--inner">
+          <div class="search-button">
+            <ion-icon name="search" class="search-icon"></ion-icon>
+          </div>
+          <input type="text" placeholder="Search" class="search-text-box" />
+        </div>
+        <div class="menuu">
+          <ion-icon name="reorder-two-outline" class="menu"></ion-icon>
+        </div>
       </nav>
 
       <div class="container-inner">
         <div class="search-results">
-          <div class="search-box">
-            <div class="search-box--inner">
+          <!-- <div class="search-box">
+            <div class="search-box--inner box2">
               <div class="search-button">
                 <ion-icon name="search" class="search-icon"></ion-icon>
               </div>
               <input type="text" placeholder="Search" class="search-text-box" />
             </div>
-          </div>
+          </div> -->
           <div class="results-box">
             <div class="results-section results-header">
               <div class="search_for_account">
-                <div class="search-img">
-                  <img src="./src/img/blue-logo.png" alt="logo-image" />
+                <div class="search-img-box">
+                  <img
+                    src="./src/img/blue-logo.png"
+                    alt="logo-image"
+                    class="search-img"
+                  />
                 </div>
                 <p class="search-text">
                   Search for any username to get details
@@ -138,8 +164,12 @@
           </div>
         </div>
         <aside class="bookmarks">
+          <ion-icon name="close-circle-outline" class="cross"></ion-icon>
+
           <h3 class="bookmarks-heading">Bookmarks</h3>
+
           <ul class="bookmarks-list">
+            
             <!-- <li class="bookmarks-item">
               <ion-icon name="close-circle-outline" class="cross"></ion-icon>
               <div class="bookmarksPic-box">

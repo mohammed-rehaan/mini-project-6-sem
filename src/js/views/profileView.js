@@ -12,12 +12,26 @@ class ProfileView extends view {
     this._clear();
     this._parentElement.insertAdjacentHTML("afterbegin", markup);
   }
-  addhandler(handler) {
-    this._parentElement.addEventListener("click", handler);
+  addhandler(handler1, handler2) {
+    this._parentElement.addEventListener("click", function (e) {
+      const bookmark_icon = document.querySelector(".bookmark-icon");
+      if (!e.target.classList.contains("bookmark-icon")) return;
+
+      if (bookmark_icon.name != "bookmark-outline") {
+        bookmark_icon.setAttribute("name", "bookmark-outline");
+        bookmark_icon.classList.remove("bookmark-icon-filled");
+        handler1();
+      } else {
+        bookmark_icon.setAttribute("name", "bookmark");
+        bookmark_icon.classList.add("bookmark-icon-filled");
+        handler2();
+      }
+    });
   }
   renderBookmarkedID() {
     const markup = this._generateBookmarkMarkup();
   }
+
   renderError() {
     const markup = `<div class="error-box">
     <div class="error-icon">

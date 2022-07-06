@@ -46,7 +46,7 @@ export const fetchRepos = async function () {
 
     state.results.repos = res;
     // res.map((el) => state.results.languages_url.push(el.languages_url));
-    fetchLanguages();
+    // fetchLanguages();
     // console.log(state.results.languages);
     console.log(res);
   } catch (err) {
@@ -97,15 +97,8 @@ const getLocalItem = function () {
 };
 getLocalItem();
 
-// export const fetchLang = async function () {
-
+// export const renderBookmarked = function () {
+//   const bookmark_icon = document.querySelector(".bookmark-icon");
+//   bookmark_icon.setAttribute("name", "bookmark");
+//   bookmark_icon.classList.add("bookmark-icon-filled");
 // };
-// fetchRepos();
-
-export const renderBookmarked = function () {
-  const bookmark_icon = document.querySelector(".bookmark-icon");
-  bookmark_icon.setAttribute("name", "bookmark");
-  bookmark_icon.classList.add("bookmark-icon-filled");
-};
-
-// const renderAsideBookmarks = function () {};
